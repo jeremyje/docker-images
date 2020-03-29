@@ -1,10 +1,24 @@
+# Copyright 2020 Codecahedron Authors
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 services:
 - docker
-script:
-- echo "$DOCKER_HUB_PASSWORD" | docker login --username "$DOCKER_HUB_USERNAME" --password-stdin
-after_success:
-- make VCS_REF=$TRAVIS_COMMIT push
 env:
   global:
   - secure: gocrHLDyFABtrGr1DO1Ol3NkCp4A/E30+wu9mW+Z94RzI4uzPu2OYYIcWqxNpvgIae8Kno8j+v7quWV3nsVWxNY9ZfEWbyIl15A7k5RFYegi/KM7pGuXP7L5NufcFMp+FbZ3InRMHog3vxnpvqIUUSfja3N9fTSRYv20CoQ1v10mGhaD1BJLKzWGorRz9LIvvM22woPVXWUsBXr3T2nVo9c2iZmf2pPFQ7DlU1Aj606ePSwiAo0jFqZozol5t+AnDinTHjP2TpryOKG2yKlRUrMkcZ40fGGpvGOzLeM1UjRw9QEcQpiQHm1ZsHh8ZBhquJtXxLB47WBGUomnZV22KHuu7296/y8lPVdJkaPsSU3DPPus2yEKeYxsfEUComfUKSgAwG0P+JTVt8QEDcJ9KrZUVjHowmsn2AKUN+OPfXs6zh3VmvWl9hH4BW21sqeq6/zN/EzRwLIimVO5qI/0QC4CzWnjW6oBlYjBSs9FqT5RNq3MkmzMaEmt6R56dtkJpb21qrsJvovolUWK9J36K/aot/BNa+gvreZoLlXVKkc9DaSbHKfAcGIdVBVAkdsMk5f06gG9eVcigkr9F3c4EbSteDZLyVGYIgmzcl+2esXDRxowTmSWPtxm2hFbeDQkhaSsuH6/mBDNmZqHeGBZHAyR+aMrFqRLHQXuvAE4E4A=
   - secure: VaELvZ4ofXZ3mna3EnB4PGzWZIfmiNGNlkiR7ljhrxHs4/hT94aSF4rm6Opfi/lPkvzfE/Iy5Rp0V1jglkB0/SsjLYpOqGN9nRivcx5XH++9HkVlLu7DO/8jqlz94gqJxgVGyjaELTpFUbGsJ8lJHFNHRw2nib0Zly1A71MXEqxHlfiPLWRXavzp0v3Mx72vkM5wgVRLCGRd79uvCAyeLL/X3o+QOt2v1bAAfuz4qOZe/xsq+2eIQx2YCNcIIFjr+tYDXIMyWN2DJEInUnTuKgde/tOh6YagpFIKVY+BsNdGbPrYxm5zBU9ws6rT8esh5+lzjApF2PGoC6aPgqzTkncDIFwDAoxweEplAXE2It1g4YYxheMFIec3f5kW3ZlJUdfr1RaX+oKK2LkOQ0XhwJUzH0sljY7IeEwr5AUyZcWUX4srjHC4dhKjuzqrSgYAa5kJYHj/PSRyhyKsx5aAs7ngEtA3L3Y4wJR6hjLsdBvosNm0zsFivZ6G8qcVPCY7Mle2lQjhnLFAL97aClahjRS0uuHSaCBTgGSvPMF0/JaFOilhNY5H/HAEEsRoEL+deD3XDY/1tgmAt5zgoeYgLDOsWNmiEgB7LWoRYXUqqbuHw2H27uVaVETAKOE5W32ZeBZkTElRAQO6kqlux3DsZL/tPzfEF6XnltJhFJXSvDc=
+script:
+- echo "$DOCKER_HUB_PASSWORD" | docker login --username "$DOCKER_HUB_USERNAME" --password-stdin
+after_success:
+- make VCS_REF=$TRAVIS_COMMIT push
